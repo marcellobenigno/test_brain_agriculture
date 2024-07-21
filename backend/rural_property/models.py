@@ -28,7 +28,11 @@ class RuralProperty(BaseModel):
             )
 
     def save(self, *args, **kwargs):
+        # Save the instance first
+        super().save(*args, **kwargs)
+        # Now validate
         self.clean()
+        # Save again to apply any changes made during validation
         super().save(*args, **kwargs)
 
     class Meta:

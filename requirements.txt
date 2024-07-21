@@ -110,3 +110,6 @@ webcolors==24.6.0
 webencodings==0.5.1
 websocket-client==1.8.0
 widgetsnbextension==4.0.11
+pandas==2.2.2
+faker==26.0.0
+
