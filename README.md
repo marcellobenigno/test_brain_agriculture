@@ -14,7 +14,7 @@ O mesmo consiste em um cadastro de produtor rural com os seguintes dados:
 6. Área total em hectares da fazenda
 7. Área agricultável em hectares
 8. Área de vegetação em hectares
-9. Culturas plantadas (Soja, Milho, Algodão, Café, Cana de Açucar)
+9. Culturas plantadas (Soja, Milho, Algodão, Café, Cana de Açúcar)
 
 ## Requisitos de negócio:
 

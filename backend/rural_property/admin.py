@@ -19,8 +19,7 @@ class PlantationInline(admin.TabularInline):
 
 @admin.register(RuralProperty)
 class FarmerAdmin(admin.ModelAdmin):
-    list_display = ['property_name', 'owner', 'city', 'total_area_ha', 'vegetation_area_ha', 'active', 'created',
-                    'updated', ]
+    list_display = ['property_name', 'owner', 'city', 'area_ha', 'active', 'created', 'updated', ]
     search_fields = ['property_name', ]
     form = select2_modelform(RuralProperty, attrs={'width': '600px'})
     inlines = [PlantationInline, ]

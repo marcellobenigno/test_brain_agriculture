@@ -90,29 +90,27 @@ class Command(BaseCommand):
             for farmer in farmers:
                 city = City.objects.order_by('?').first()
                 property_name = faker.company()
-                total_area_ha = Decimal(random.uniform(30, 1000)).quantize(Decimal('1.000'))
-                vegetation_area_ha = Decimal(random.uniform(0, float(total_area_ha))).quantize(Decimal('1.000'))
+                area_ha = Decimal(random.uniform(30, 1000)).quantize(Decimal('1.000'))
 
                 rural_property = RuralProperty(
                     owner=farmer,
                     city=city,
                     property_name=property_name,
-                    vegetation_area_ha=vegetation_area_ha,
-                    total_area_ha=total_area_ha
+                    area_ha=area_ha
                 )
                 rural_property.save()
 
                 # Generate Plantations
-                remaining_area = total_area_ha - vegetation_area_ha
+
                 min_plantation_area = Decimal('5.000')
 
-                while remaining_area > 0:
-                    max_plantation_area = min(remaining_area, min_plantation_area * 2)
+                while area_ha > 0:
+                    max_plantation_area = min(area_ha, min_plantation_area * 2)
 
                     if max_plantation_area < min_plantation_area:
                         break
 
-                    plantation_area = Decimal(random.uniform(0, float(remaining_area))).quantize(Decimal('1.000'))
+                    plantation_area = Decimal(random.uniform(0, float(area_ha))).quantize(Decimal('1.000'))
                     plantation_name = random.choice([choice[0] for choice in Plantation.CULTURE_CHOICES])
 
                     if plantation_area > 0:
@@ -122,9 +120,9 @@ class Command(BaseCommand):
                             rural_property=rural_property
                         )
                         plantation.save()
-                        remaining_area -= plantation_area
+                        area_ha -= plantation_area
 
                 print(
-                    f'Generated RuralProperty: {rural_property.property_name} with total area {rural_property.total_area_ha} ha')
+                    f'Generated RuralProperty: {rural_property.property_name} with total area {rural_property.area_ha} ha')
                 for plantation in Plantation.objects.filter(rural_property=rural_property):
                     print(f'Generated Plantation: {plantation.name} with area {plantation.area_ha} ha')
