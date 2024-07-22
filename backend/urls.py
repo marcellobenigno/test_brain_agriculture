@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.routers import DefaultRouter
 
 from .farmer.views import FarmerViewSet as farmer_api
@@ -13,18 +14,19 @@ from .rural_property.views import RuralPropertyViewSet as rural_property_api
 router = DefaultRouter()
 
 # locations
-router.register('estados', state_api, basename='estados')
-router.register('cidades', city_api, basename='cidades')
+router.register('states', state_api, basename='states')
+router.register('cities', city_api, basename='cities')
 # farmers
-router.register('proprietarios-rurais', farmer_api, basename='proprietarios-rurais')
+router.register('farmers', farmer_api, basename='farmers')
 # rural_property
-router.register('propriedades-rurais', rural_property_api, basename='propriedades-rurais')
-router.register('areas-plantadas', plantation_api, basename='areas-plantadas')
+router.register('rural-properties', rural_property_api, basename='rural-properties')
+router.register('plantations', plantation_api, basename='plantations')
 
 urlpatterns = [
     path('', include('backend.core.urls')),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('api/login/', obtain_auth_token)
 ]
 
 if settings.DEBUG:

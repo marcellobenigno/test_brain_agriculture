@@ -112,4 +112,6 @@ websocket-client==1.8.0
 widgetsnbextension==4.0.11
 pandas==2.2.2
 faker==26.0.0
+pytest-django==4.8.0
+
 

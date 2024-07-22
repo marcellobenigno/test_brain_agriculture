@@ -33,7 +33,7 @@ O mesmo consiste em um cadastro de produtor rural com os seguintes dados:
 ## Requisitos Técnicos:
 
 * Python >= 3.11
-* PostgreSQL >= 12
+* PostgreSQL >= 13
 
 ## Configurações do Banco de Dados:
 
@@ -85,7 +85,7 @@ python manage.py add_data <numero-de-proprietarios-e-propriedades-rurais>
 Caso não seja passado nenhum argumento, serão criados 50 proprietátios e 50 propriedades
 rurais (`python manage.py add_data`).
 
-Crie um superusuário para acessar o painel administrativo:
+Crie um **superusuário** para acessar o **Painel Administrativo**:
 
 ```
 python manage.py createsuperuser
@@ -99,13 +99,11 @@ python manage.py runserver
 
 O sistema ficará disponível no endereço http://localhost:8000/ 🎉
 
-https://github.com/viniciusgferreira/brain-ag-backend-api
-
 ## API Endpoints:
 
 * [Api root](http://localhost:8000/api)
-* [Total de fazendas em quantidade](http://localhost:8000/api/propriedades-rurais/total_properties/)
-* [Total de fazendas em hectares (área total)](http://localhost:8000/api/propriedades-rurais/total_area_ha/)
-* [Total de fazendas por estado](http://localhost:8000/api/propriedades-rurais/total_properties_by_state/)
-* [Total por cultura](http://localhost:8000/api/areas-plantadas/total_area_by_culture/).
-* [Total por uso de solo (Área agricultável e vegetação)](http://localhost:8000/api/areas-plantadas/total_land_use_area_summary/)
+* [Total de fazendas em quantidade](http://localhost:8000/api/rural-properties/total_properties/)
+* [Total de fazendas em hectares (área total)](http://localhost:8000/api/rural-properties/total_area_ha/)
+* [Total de fazendas por estado](http://localhost:8000/api/rural-properties/total_properties_by_state/)
+* [Total por cultura](http://localhost:8000/api/plantations/total_area_by_culture/)
+* [Total por uso de solo (Área agricultável e vegetação)](http://localhost:8000/api/plantations/total_land_use_area_summary/)

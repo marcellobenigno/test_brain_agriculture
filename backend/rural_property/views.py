@@ -64,7 +64,7 @@ class PlantationViewSet(viewsets.ModelViewSet):
         return Response(results)
 
     @action(detail=False, methods=['get'])
-    def total_land_use_area_summary(self, request):
+    def total_land_use_area(self, request):
         total_culture_area = models.Plantation.objects \
              .exclude(name='Área de Vegetação') \
              .aggregate(total_culture_area=Sum('area_ha'))['total_culture_area'] or 0
