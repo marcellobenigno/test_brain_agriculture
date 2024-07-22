@@ -82,7 +82,8 @@ Foi criado um custom manager no projeto (`core/management/commands/add_data.py`)
 python manage.py add_data <numero-de-proprietarios-e-propriedades-rurais>
 ```
 
-Caso não seja passado nenhum argumento, serão criados 50 proprietátios e 50 propriedades rurais.
+Caso não seja passado nenhum argumento, serão criados 50 proprietátios e 50 propriedades
+rurais (`python manage.py add_data`).
 
 Crie um superusuário para acessar o painel administrativo:
 
@@ -97,8 +98,5 @@ python manage.py runserver
 ```
 
 O sistema ficará disponível no endereço http://localhost:8000/ 🎉
-
-
-
 
 https://github.com/viniciusgferreira/brain-ag-backend-api

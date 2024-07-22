@@ -13,12 +13,14 @@ class Farmer(BaseModel):
     def __str__(self):
         return self.name
 
-    def save(self, *args, **kwargs):
+    def clean(self):
         if not self.cpf and not self.cnpj:
             raise ValidationError("Deve ser informado CPF ou CNPJ.")
         if self.cpf and self.cnpj:
             raise ValidationError("Não pode informar ambos CPF e CNPJ.")
 
+    def save(self, *args, **kwargs):
+        self.clean()
         super().save(*args, **kwargs)
 
     class Meta:
