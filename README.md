@@ -100,3 +100,12 @@ python manage.py runserver
 O sistema ficará disponível no endereço http://localhost:8000/ 🎉
 
 https://github.com/viniciusgferreira/brain-ag-backend-api
+
+## API Endpoints:
+
+* [Api root](http://localhost:8000/api)
+* [Total de fazendas em quantidade](http://localhost:8000/api/propriedades-rurais/total_properties/)
+* [Total de fazendas em hectares (área total)](http://localhost:8000/api/propriedades-rurais/total_area_ha/)
+* [Total de fazendas por estado](http://localhost:8000/api/propriedades-rurais/total_properties_by_state/)
+* [Total por cultura](http://localhost:8000/api/areas-plantadas/total_area_by_culture/).
+* [Total por uso de solo (Área agricultável e vegetação)](http://localhost:8000/api/areas-plantadas/total_land_use_area_summary/)
