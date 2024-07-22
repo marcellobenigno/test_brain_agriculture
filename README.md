@@ -74,6 +74,12 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
+## Rode os testes:
+
+```
+pytest
+```
+
 ## Adicionando dados à aplicação:
 
 Foi criado um custom manager no projeto (`core/management/commands/add_data.py`), para adicionar dados fake, faça:
