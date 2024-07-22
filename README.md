@@ -112,4 +112,4 @@ O sistema ficará disponível no endereço http://localhost:8000/ 🎉
 * [Total de fazendas em hectares (área total)](http://localhost:8000/api/rural-properties/total_area_ha/)
 * [Total de fazendas por estado](http://localhost:8000/api/rural-properties/total_properties_by_state/)
 * [Total por cultura](http://localhost:8000/api/plantations/total_area_by_culture/)
-* [Total por uso de solo (Área agricultável e vegetação)](http://localhost:8000/api/plantations/total_land_use_area_summary/)
+* [Total por uso de solo (Área agricultável e vegetação)](http://localhost:8000/api/plantations/total_land_use_area/)
