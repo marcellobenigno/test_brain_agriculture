@@ -46,9 +46,7 @@ class Plantation(BaseModel):
             existing_area = Plantation.objects.get(pk=self.pk).area_ha
         else:
             existing_area = 0
-
         new_sum_of_areas = self.rural_property.sum_of_areas - existing_area + self.area_ha
-
         if new_sum_of_areas > self.rural_property.area_ha:
             raise ValidationError(
                 'A soma das áreas das plantações e vegetação não pode ser maior que a área total da propriedade rural.'
