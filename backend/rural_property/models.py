@@ -20,6 +20,16 @@ class RuralProperty(BaseModel):
             rural_property=self
         ).aggregate(sum=Sum('area_ha'))['sum'] or 0
 
+    def clean(self):
+        if self.sum_of_areas > self.area_ha:
+            raise ValidationError(
+                'A soma das áreas das plantações e vegetação não pode ser maior que a área total da propriedade rural.'
+            )
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        super().save(*args, **kwargs)
+
     class Meta:
         verbose_name = 'Propriedade Rural'
         verbose_name_plural = 'Propriedades Rurais'
