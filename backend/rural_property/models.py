@@ -16,6 +16,8 @@ class RuralProperty(BaseModel):
 
     @property
     def sum_of_areas(self):
+        if not self.pk:
+            return 0
         return Plantation.objects.filter(
             rural_property=self
         ).aggregate(sum=Sum('area_ha'))['sum'] or 0

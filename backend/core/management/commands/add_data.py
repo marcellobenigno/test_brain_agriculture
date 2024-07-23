@@ -48,8 +48,8 @@ class Command(BaseCommand):
             city_objects = []
             for idx, row in df_cities.iterrows():
                 state = State.objects.filter(geocode=row['cod_uf']).first()
-                # Load only cities of São Paulo State
-                if state and state.geocode == 35:
+                # Load only cities of São Paulo State and Paraná
+                if state and state.geocode == 35 or state.geocode == 41:
                     obj = City(
                         state=state,
                         city=row['nome'],
@@ -92,13 +92,12 @@ class Command(BaseCommand):
                 property_name = faker.company()
                 area_ha = Decimal(random.uniform(30, 1000)).quantize(Decimal('1.000'))
 
-                rural_property = RuralProperty(
+                rural_property = RuralProperty.objects.create(
                     owner=farmer,
                     city=city,
                     property_name=property_name,
                     area_ha=area_ha
                 )
-                rural_property.save()
 
                 # Generate Plantations
 
@@ -114,12 +113,11 @@ class Command(BaseCommand):
                     plantation_name = random.choice([choice[0] for choice in Plantation.CULTURE_CHOICES])
 
                     if plantation_area > 0:
-                        plantation = Plantation(
+                        plantation = Plantation.objects.create(
                             name=plantation_name,
                             area_ha=plantation_area,
                             rural_property=rural_property
                         )
-                        plantation.save()
                         area_ha -= plantation_area
 
                 print(
